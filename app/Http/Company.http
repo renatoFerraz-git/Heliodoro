@@ -1,0 +1,11 @@
+GET http://localhost:3333/companies
+###
+POST http://localhost:3333/companies
+content-type: application/json
+
+{
+  "company_name": "Qodeless",
+  "cnpj": "120.200.777.0001-99"
+}
+
+###
