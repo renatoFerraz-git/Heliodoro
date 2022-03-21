@@ -1,11 +1,26 @@
+GET http://127.0.0.1:3333/
+content-type: application/json
+###
 GET http://localhost:3333/companies
+###
+GET http://127.0.0.1:3333/companies/1
+content-type: application/json
 ###
 POST http://localhost:3333/companies
 content-type: application/json
 
 {
-  "company_name": "Qodeless",
-  "cnpj": "120.200.777.0001-99"
+  "company_name": "Qodeles",
+  "cnpj": "120.200.777.001-99"
 }
+###
+PUT http://127.0.0.1:3333/companies/1
+content-type: application/json
 
+{
+  "company_name": "Qodeles",
+  "cnpj": "120.200.777.001-99"
+}
+###
+DELETE http://127.0.0.1:3333/companies/1
 ###

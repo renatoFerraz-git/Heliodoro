@@ -1,4 +1,5 @@
 import Mail from "@ioc:Adonis/Addons/Mail";
+
 import type { HttpContextContract } from "@ioc:Adonis/Core/HttpContext";
 import Employee from "App/Models/Employee";
 import { randomBytes } from "crypto";
@@ -7,7 +8,6 @@ import { promisify } from "util";
 export default class PasswordsController {
   //Post
   public async forgotPassword({ request, response }: HttpContextContract) {
-    // console.log(response, request);
     const { email, resetPasswordUrl } = request.only([
       "email",
       "resetPasswordUrl",
@@ -18,6 +18,8 @@ export default class PasswordsController {
     await employee
       .related("tokens")
       .updateOrCreate({ employeeId: employee.id }, { token });
+    const resetPasswordUrlWithToken = `${resetPasswordUrl}?token=${token}`;
+
     await Mail.send((mensage) => {
       mensage
         .from("heliodoro@heliodoro.com")
@@ -26,7 +28,7 @@ export default class PasswordsController {
         .htmlView("emails/forgotpassword", {
           productName: "Heliodoro",
           name: employee.username,
-          resetPasswordUrl,
+          resetPasswordUrl: resetPasswordUrlWithToken,
         });
     });
     return response.noContent();

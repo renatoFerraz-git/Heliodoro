@@ -1,16 +1,31 @@
+GET http://127.0.0.1:3333/
+content-type: application/json
+###
 GET http://localhost:3333/employees
 ###
-
-
+GET http://127.0.0.1:3333/employees/1
+content-type: application/json
 ###
-POST http://localhost:3333/employees HTTP/1.1
+POST http://localhost:3333/employees
 content-type: application/json
 
 {
-  "username": "ferraz",
+  "username": "qodselejssss",
   "password": "asdf1904",
-  "email": "ferraz.qodeless@gmail.com",
+  "email": "qodelse7ssss@gmail.com",
   "company_id": 1
 }
-
 ###
+PUT http://127.0.0.1:3333/employees/2
+content-type: application/json
+
+{
+  "username": "qodelejssss",
+  "password": "asdf1904",
+  "email": "qodele7ssss@gmail.com",
+  "company_id": 1
+}
+###
+DELETE http://127.0.0.1:3333/employees/1
+###
+
