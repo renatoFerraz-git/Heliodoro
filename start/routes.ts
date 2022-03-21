@@ -1,7 +1,7 @@
 import Route from "@ioc:Adonis/Core/Route";
 
 Route.get("/", async () => {
-  return { 3333: "ONLINE" };
+  return { ONLINE: "SUA APLICAÇÃO ESTÁ RODANDO NA PORTA 3333" };
 });
 
 Route.resource("/employees", "EmployeesController").apiOnly();
